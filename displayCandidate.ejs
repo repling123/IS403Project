@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Political Candidate Resource - President</title>
+    <style>
+        /* USA-themed CSS styling with stars */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f9;
+            background-image: radial-gradient(circle at 10% 10%, #d32f2f, transparent 20%), /* Red stars */
+                              radial-gradient(circle at 90% 10%, #1976d2, transparent 20%), /* Blue stars */
+                              radial-gradient(circle at 30% 90%, #d32f2f, transparent 20%), /* Red stars */
+                              radial-gradient(circle at 70% 80%, #1976d2, transparent 20%); /* Blue stars */
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        header {
+            background-color: #d32f2f; /* Red */
+            color: white;
+            padding: 1.5em 1em;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-stars {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.5em;
+        }
+
+        .header-stars-right {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+        }
+
+        .login-button {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #1976d2; /* Blue */
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .login-button:hover {
+            background-color: #1565c0;
+        }
+
+        #content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .candidate-info {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .candidate-info h2 {
+            color: #d32f2f;
+        }
+
+        .candidate-detail {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .candidate-detail strong {
+            color: #1976d2;
+        }
+
+        .candidate-detail p {
+            margin: 5px 0;
+        }
+
+        .candidate-select {
+            margin-top: 20px;
+            font-size: 1em;
+            padding: 0.5em;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .search-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #d32f2f; /* Red */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Decorative Stars -->
+        <div class="header-stars">⭐️ ⭐️ ⭐️</div>
+        <div class="header-stars-right">⭐️ ⭐️ ⭐️</div>
+        
+        <h1>Political Candidate Information</h1>
+        <p>Learn about candidates running for public office</p>
+    </header>
+    
+    <div id="content">
+        <div class="candidate-info">
+            <h2>Candidate Name</h2>
+            <h4>Candidate Picture</h4>
+            <p>Platform Summary</p>
+            
+            <!-- Candidate Details Section -->
+            <div class="candidate-detail">
+                <p><strong>Website:</strong> <a href="#" id="candidate-website" target="_blank">Visit Candidate's Site</a></p>
+                <p><strong>Party Affiliation:</strong> <span id="candidate-party">Party Name</span></p>
+                <p><strong>Age:</strong> <span id="candidate-age">Candidate's Age</span></p>
+            </div>
+            
+            <!-- Selection and Search Section
+            <select class="candidate-select">
+                <option value="">Select a Candidate</option>
+                <option value="candidate1">Candidate 1</option>
+                <option value="candidate2">Candidate 2</option>
+                 Additional candidates as needed 
+            </select>
+            <button class="search-button">Search</button> -->
+        </div>
+    </div>
+    
+<script>
+	
+</script>
+</body>
+</html>

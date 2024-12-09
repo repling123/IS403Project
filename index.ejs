@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presidential Candidate Resource - President</title>
+    <style>
+        /* USA-themed CSS styling with stars */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f9;
+            background-image: radial-gradient(circle at 10% 10%, #d32f2f, transparent 20%), /* Red stars */
+                              radial-gradient(circle at 90% 10%, #1976d2, transparent 20%), /* Blue stars */
+                              radial-gradient(circle at 30% 90%, #d32f2f, transparent 20%), /* Red stars */
+                              radial-gradient(circle at 70% 80%, #1976d2, transparent 20%); /* Blue stars */
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        header {
+            background-color: #d32f2f; /* Red */
+            color: white;
+            padding: 1.5em 1em;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-stars {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.5em;
+        }
+
+        .header-stars-right {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+        }
+
+        .login-button {
+            position: absolute;
+            bottom: 10px; /* Position at the bottom */
+            right: 10px; /* Position at the right */
+            padding: 10px 20px;
+            background-color: #1976d2; /* Blue */
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .login-button:hover {
+            background-color: #1565c0;
+        }
+
+        nav {
+            background-color: #1976d2; /* Blue */
+            color: white;
+            padding: 0.5em;
+        }
+
+        nav .tabs {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav .tabs li {
+            flex: 1;
+            text-align: center;
+        }
+
+        nav .tabs li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 14px 16px;
+        }
+
+        nav .tabs li a:hover {
+            background-color: #1565c0;
+        }
+
+        #content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tab-content {
+            display: none; /* Hides all tabs by default */
+        }
+
+        .tab-content.active {
+            display: block; /* Show the active tab */
+        }
+
+        .candidate-select {
+            margin-top: 20px;
+            font-size: 1em;
+            padding: 0.5em;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .search-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #d32f2f; /* Red */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Decorative Stars -->
+        <div class="header-stars">⭐️ ⭐️ ⭐️</div>
+        <div class="header-stars-right">⭐️ ⭐️ ⭐️</div>
+        
+        <h1>Presidential Candidate Resource</h1>
+        <p>Your resource for unbiased information on presidential candidates.</p>
+        
+        <!-- Login button moved to the bottom-right of the header -->
+        <a href="/login" class="login-button">Login</a>
+    </header>
+    
+    <nav>
+        <ul class="tabs">
+            <li><a href="#" data-target="president">President</a></li>
+            <!-- Future federal tabs, commented out for now -->
+            <!-- <li><a href="#" data-target="senate">Senate</a></li> -->
+            <!-- <li><a href="#" data-target="house">House of Representatives</a></li> -->
+        </ul>
+    </nav>
+
+    <section id="content">
+        <!-- President Section -->
+        <div id="president" class="tab-content active">
+            <h2>Presidential Candidates</h2>
+            <p>Find information on all current presidential candidates below.</p>
+            
+            <!-- Dropdown for selecting a candidate -->
+            <form id="candidateForm" action="/candidate" method="get">
+                <label for="candidate-select">Select a Candidate:</label>
+                <select id="candidate-select" name="candidate" class="candidate-select" required>
+                    <option value="">-- Choose a Candidate --</option>
+                    <option value="candidate1">Candidate 1</option>
+                    <option value="candidate2">Candidate 2</option>
+                    <!-- Add more candidates as needed -->
+                </select>
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
+        
+        <!-- Placeholder for other federal sections (commented out for now) -->
+        <!--
+        <div id="senate" class="tab-content">
+            <h2>Senate Candidates</h2>
+            <ul>
+                <li><a href="#candidate1">Candidate 1</a></li>
+                <li><a href="#candidate2">Candidate 2</a></li>
+            </ul>
+        </div>
+        
+        <div id="house" class="tab-content">
+            <h2>House of Representatives Candidates</h2>
+            <ul>
+                <li><a href="#candidate1">Candidate 1</a></li>
+                <li><a href="#candidate2">Candidate 2</a></li>
+            </ul>
+        </div>
+        -->
+    </section>
+
+    <script>
+        // JavaScript for tab switching
+        document.addEventListener("DOMContentLoaded", () => {
+            const tabs = document.querySelectorAll(".tabs li a");
+            const contents = document.querySelectorAll(".tab-content");
+
+            // Default tab is "President" (set as active in the HTML above)
+            tabs.forEach(tab => {
+                tab.addEventListener("click", (event) => {
+                    event.preventDefault();
+
+                    // Hide all content sections
+                    contents.forEach(content => content.classList.remove("active"));
+
+                    // Show the target content
+                    const targetId = tab.getAttribute("data-target");
+                    document.getElementById(targetId).classList.add("active");
+                });
+            });
+        });
+    </script>
+</body>
+</html>

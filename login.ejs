@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Political Candidate Database</title>
+    <style>
+        /* Basic CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .input-group {
+            margin: 1em 0;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0.3em;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.7em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 0.7em;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 1em;
+        }
+
+        .login-button:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 0.5em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm" method="POST" action="/login">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-button">Log In</button>
+            <p class="error-message" id="errorMessage">Invalid username or password.</p>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript for simple client-side validation
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("errorMessage");
+
+            // Simple validation check
+            if (!username || !password) {
+                event.preventDefault(); // Prevent form submission
+                errorMessage.textContent = "Both fields are required.";
+                errorMessage.style.display = "block";
+            } else {
+                errorMessage.style.display = "none"; // Hide error message on valid input
+            }
+        });
+    </script>
+</body>
+</html>
